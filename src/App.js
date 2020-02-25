@@ -20,13 +20,32 @@ class App extends Component {
       users: previousUsers
     })
   }
+  //function to delete user
+  deleteUser = (user) => {
+    const previousUsers = this.state.users;
+    const newUsers = previousUsers.filter((i) => { return (user.id !== i.id) });
+    this.setState({
+      users: newUsers
+    })
+  }
+  //function to update user
+  updateUser = (user, updatedUser) => {
+    console.log(user.id);
+    console.log(updatedUser.firstName);
+    const previousUsers = this.state.users;
+    previousUsers[user.id - 1] = ({ id: user.id, firstName: updatedUser.firstName, lastName: updatedUser.lastName });
+    this.setState({
+      users: previousUsers
+    })
+
+  }
 
   render() {
     return (
       <div>
         <p>Welcome to UserPage</p>
         <CreateUserForm addNewUser={this.addNewUser} />
-        <Users users={this.state.users} />
+        <Users users={this.state.users} deleteUser={this.deleteUser} updateUser={this.updateUser} />
 
       </div>
     );

@@ -8,7 +8,6 @@ class CreateUserForm extends Component {
             lastName: this.refs.lastname.value
         }
         e.preventDefault();
-        // call the addUser function
         this.props.addNewUser(newUser);
         //reset the form after submit
         e.target.reset();
