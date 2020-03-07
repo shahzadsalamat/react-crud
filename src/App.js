@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CreateUserForm from './components/createUserForm.js';
 import Users from './components/users.js';
+import './css/index.css';
 
 class App extends Component {
   constructor(props) {
@@ -31,8 +32,17 @@ class App extends Component {
   //function to update user
   updateUser = (user, updatedUser) => {
     console.log(user.id);
-    console.log(updatedUser.firstName);
+    console.log('updated firstname' + updatedUser.firstName);
+    console.log('old firstname' + user.firstName);
+
     const previousUsers = this.state.users;
+    if(updatedUser.firstName === null ){
+      updatedUser.firstName = user.firstName;
+      console.log('old firstname now' + updatedUser.firstName);
+    }
+    if (updatedUser.lastName === null){
+      updatedUser.lastName = user.lastName;
+    }
     previousUsers[user.id - 1] = ({ id: user.id, firstName: updatedUser.firstName, lastName: updatedUser.lastName });
     this.setState({
       users: previousUsers
@@ -42,11 +52,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='app-wrapper'>
+        <div className='app-content'>
         <p>Welcome to UserPage</p>
         <CreateUserForm addNewUser={this.addNewUser} />
         <Users users={this.state.users} deleteUser={this.deleteUser} updateUser={this.updateUser} />
-
+        </div>
       </div>
     );
   }

@@ -42,66 +42,68 @@ class Users extends Component {
     render() {
         return (
             <div>
-                {this.props.users.map(
-                    (user, index) => {
-                        return (
+                <table id="customers">
+                    <tr>
+                        <th>ID</th>
+                        <th>first Name</th>
+                        <th>Last Name</th>
+                        <th>Operations</th>
+                    </tr>
+                    {this.props.users.map(
+                        (user, index) => {
+                            return (
 
-                            this.state.editMode ?
-                                (
-                                    <div key={index}>
-                                        <p>differnets</p>
-                                        <span><input
-                                            type='hidden'
-                                            name='id'
-                                            value={user.id}
-                                        /></span>
-                                        <span><input
-                                            type='text'
-                                            name='firstName'
-                                            placeholder={user.firstName}
-                                            defaultValue={user.firstName}
-                                            onChange={this.handleChange}
-                                        /></span>
-                                        <label>Last Name:</label>
-                                        <input
-                                            type='text'
-                                            name='lastName'
-                                            placeholder={user.lastName}
-                                            defaultValue={user.lastName}
-                                            onChange={this.handleChange}
-                                        />
-                                        <button onClick={this.handleUpdateUser.bind(this, user)} >
-                                            update
+                                this.state.editMode ?
+                                    (
+
+                                            <tr key={index}>
+                                                <td> <input
+                                                    type='hidden'
+                                                    name='id'
+                                                    value={user.id}
+                                                /></td>
+                                                <td><input
+                                                    type='text'
+                                                    name='firstName'
+                                                    placeholder={user.firstName}
+                                                    defaultValue={user.firstName}
+                                                    onChange={this.handleChange}
+                                                /></td>
+                                                <td> <input
+                                                    type='text'
+                                                    name='lastName'
+                                                    placeholder={user.lastName}
+                                                    defaultValue={user.lastName}
+                                                    onChange={this.handleChange}
+                                                /></td>
+                                                <td>
+                                                    <button onClick={this.handleUpdateUser.bind(this, user)} >
+                                                        update
                             </button>
-                                        <button onClick={this.handleEditMode}>
-                                            Edit
+                                                    <button onClick={this.handleEditMode}>
+                                                        Edit
                             </button>
-                                    </div>
-                                ) :
-                                (
-                                    // show if not in the edit mode  
-
-                                    <div key={index}>
-                                        <span> {user.id}</span>
-                                        <span> {user.firstName}</span>
-                                        <span> {user.lastName}</span>
-                                        <button onClick={this.handleDeleteUser.bind(this, user)} >
-                                            delete
+                                                </td>
+                                            </tr>
+                                    ) :
+                                    (
+                                        // show if not in the edit mode  
+                                            <tr key={index}>
+                                                <td>{user.id}</td>
+                                                <td>{user.firstName}</td>
+                                                <td>{user.lastName}</td>
+                                                <td> <button onClick={this.handleDeleteUser.bind(this, user)} >
+                                                    delete
                              </button>
-                                        <button onClick={this.handleEditMode}>
-                                            Edit
-                             </button>
-                                    </div>
-                                )
-
-
-
-
-
-                        );
-                    }
-                )}
-
+                                                    <button onClick={this.handleEditMode}>
+                                                        Edit
+                             </button></td>
+                                            </tr>
+                                    )
+                            );
+                        }
+                    )}
+                </table>
             </div>
         );
     }
