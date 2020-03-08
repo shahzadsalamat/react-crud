@@ -12,16 +12,17 @@
 
   .app-wrapper {
     text-align: center;
-    margin: 20px;
+    margin: 50px;
   }
   .app-content {
     text-align: center;
-    margin: 20px;
+    margin-top: 20px;
 }
 #customers {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  margin-top: 50px;
 }
 
 #customers td, #customers th {

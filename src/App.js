@@ -32,15 +32,15 @@ class App extends Component {
   //function to update user
   updateUser = (user, updatedUser) => {
     console.log(user.id);
-    console.log('updated firstname' + updatedUser.firstName);
+    console.log('updated lastname' + updatedUser.lastName);
     console.log('old firstname' + user.firstName);
 
     const previousUsers = this.state.users;
-    if(updatedUser.firstName === null ){
+    if(updatedUser.firstName === '' ){
       updatedUser.firstName = user.firstName;
       console.log('old firstname now' + updatedUser.firstName);
     }
-    if (updatedUser.lastName === null){
+    if (updatedUser.lastName === ''){
       updatedUser.lastName = user.lastName;
     }
     previousUsers[user.id - 1] = ({ id: user.id, firstName: updatedUser.firstName, lastName: updatedUser.lastName });
@@ -53,10 +53,23 @@ class App extends Component {
   render() {
     return (
       <div className='app-wrapper'>
-        <div className='app-content'>
         <p>Welcome to UserPage</p>
+        <div className='app-content'>
         <CreateUserForm addNewUser={this.addNewUser} />
-        <Users users={this.state.users} deleteUser={this.deleteUser} updateUser={this.updateUser} />
+               <table id="customers">
+                    <tr>
+                        <th>ID</th>
+                        <th>first Name</th>
+                        <th>Last Name</th>
+                        <th>Operations</th>
+                    </tr>
+                      {this.state.users.map((user) => {
+                        return (
+                          <Users user={user} deleteUser={this.deleteUser} updateUser={this.updateUser} />
+                        );
+                      }
+                      )}
+            </table>
         </div>
       </div>
     );

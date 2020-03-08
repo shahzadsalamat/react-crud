@@ -24,7 +24,7 @@ class Users extends Component {
     }
     handleUpdateUser = (user) => {
         const updatedUser = {
-            id: user.id,
+            id: this.props.user.id,
             firstName: this.state.firstName,
             lastName: this.state.lastName
         };
@@ -41,70 +41,57 @@ class Users extends Component {
     }
     render() {
         return (
-            <div>
-                <table id="customers">
+            this.state.editMode ?
+                (
                     <tr>
-                        <th>ID</th>
-                        <th>first Name</th>
-                        <th>Last Name</th>
-                        <th>Operations</th>
+                        <td> <input
+                            type='hidden'
+                            name='id'
+                            value={this.props.user.id}
+                        /></td>
+                        <td><input
+                            type='text'
+                            name='firstName'
+                            placeholder={this.props.user.firstName}
+                            defaultValue={this.props.user.firstName}
+                            onChange={this.handleChange}
+                        /></td>
+                        <td> <input
+                            type='text'
+                            name='lastName'
+                            placeholder={this.props.user.lastName}
+                            defaultValue={this.props.user.lastName}
+                            onChange={this.handleChange}
+                        /></td>
+                        <td>
+                            <button onClick={this.handleUpdateUser.bind(this, this.props.user)} >
+                                update
+                            </button>
+                            <button onClick={this.handleEditMode}>
+                                Edit
+                        </button>
+                        </td>
                     </tr>
-                    {this.props.users.map(
-                        (user, index) => {
-                            return (
 
-                                this.state.editMode ?
-                                    (
-
-                                            <tr key={index}>
-                                                <td> <input
-                                                    type='hidden'
-                                                    name='id'
-                                                    value={user.id}
-                                                /></td>
-                                                <td><input
-                                                    type='text'
-                                                    name='firstName'
-                                                    placeholder={user.firstName}
-                                                    defaultValue={user.firstName}
-                                                    onChange={this.handleChange}
-                                                /></td>
-                                                <td> <input
-                                                    type='text'
-                                                    name='lastName'
-                                                    placeholder={user.lastName}
-                                                    defaultValue={user.lastName}
-                                                    onChange={this.handleChange}
-                                                /></td>
-                                                <td>
-                                                    <button onClick={this.handleUpdateUser.bind(this, user)} >
-                                                        update
-                            </button>
-                                                    <button onClick={this.handleEditMode}>
-                                                        Edit
-                            </button>
-                                                </td>
-                                            </tr>
-                                    ) :
-                                    (
-                                        // show if not in the edit mode  
-                                            <tr key={index}>
-                                                <td>{user.id}</td>
-                                                <td>{user.firstName}</td>
-                                                <td>{user.lastName}</td>
-                                                <td> <button onClick={this.handleDeleteUser.bind(this, user)} >
-                                                    delete
+                ) :
+                (
+                    <tr>
+                        <td>{this.props.user.id}</td>
+                        <td>{this.props.user.firstName}</td>
+                        <td>{this.props.user.lastName}</td>
+                        <td> <button onClick={this.handleDeleteUser.bind(this, this.props.user)}>
+                            delete
                              </button>
-                                                    <button onClick={this.handleEditMode}>
-                                                        Edit
-                             </button></td>
-                                            </tr>
-                                    )
-                            );
-                        }
-                    )}
-                </table>
-            </div>
+                            <button onClick={this.handleEditMode}>
+                                Edit
+                             </button>
+                        </td>
+                    </tr>
+                )
+
+
+
+
         );
     }
 }
