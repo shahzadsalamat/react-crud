@@ -52,6 +52,7 @@ class Users extends Component {
                         <td><input
                             type='text'
                             name='firstName'
+                            className='input-filled'
                             placeholder={this.props.user.firstName}
                             defaultValue={this.props.user.firstName}
                             onChange={this.handleChange}
@@ -59,17 +60,22 @@ class Users extends Component {
                         <td> <input
                             type='text'
                             name='lastName'
+                            className='input-filled'
                             placeholder={this.props.user.lastName}
                             defaultValue={this.props.user.lastName}
                             onChange={this.handleChange}
                         /></td>
                         <td>
-                            <button onClick={this.handleUpdateUser.bind(this, this.props.user)} >
+                            <button
+                                className='input-button'
+                                onClick={this.handleUpdateUser.bind(this, this.props.user)} >
                                 update
                             </button>
-                            <button onClick={this.handleEditMode}>
+                            <button
+                                className='input-button'
+                                onClick={this.handleEditMode}>
                                 Edit
-                        </button>
+                           </button>
                         </td>
                     </tr>
 
@@ -79,10 +85,14 @@ class Users extends Component {
                         <td>{this.props.user.id}</td>
                         <td>{this.props.user.firstName}</td>
                         <td>{this.props.user.lastName}</td>
-                        <td> <button onClick={this.handleDeleteUser.bind(this, this.props.user)}>
+                        <td> <button
+                        className='input-button'
+                        onClick={this.handleDeleteUser.bind(this, this.props.user)}>
                             delete
                              </button>
-                            <button onClick={this.handleEditMode}>
+                            <button
+                            className='input-button'
+                            onClick={this.handleEditMode}>
                                 Edit
                              </button>
                         </td>

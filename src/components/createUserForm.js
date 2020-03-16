@@ -18,21 +18,28 @@ class CreateUserForm extends Component {
         return (
             <div>
                 <form onSubmit={this.handleAddUser.bind(this)} >
-                    <label>First Name:</label>
-                    <input
+                    <div className='diplay-flex flex-flow-col'>
+                        <div>
+                        <input
                         type='text'
                         name='firstname'
+                        className='input-text-underlined'
                         placeholder='First name'
                         ref='firstname'
-                    />
-                    <label>Last Name:</label>
-                    <input
+                    /></div>
+                        <div className='margin-top-8px'>
+                        <input
                         type='text'
                         name='lastname'
+                        className='input-text-underlined'
                         placeholder='Last name'
                         ref='lastname'
-                    />
-                    <input type='submit' value='Add user' />
+                    /></div>
+                        <div className='margin-top-8px'>                   
+                        <input className='input-button' type='submit' value='Add user' />
+                        </div>
+                    </div>
+                   
                 </form>
             </div>
         );
