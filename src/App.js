@@ -8,8 +8,8 @@ class App extends Component {
     super(props)
     this.state = {
       users: [
-        { id: 1, firstName: 'john', lastName: 'green' },
-        { id: 2, firstName: 'peter', lastName: 'bin' }
+        { id: 1, firstName: 'shahzad', lastName: 'salamat' },
+        { id: 2, firstName: 'peter', lastName: 'Ashraf' }
       ]
     }
   }
