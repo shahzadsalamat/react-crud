@@ -70,7 +70,6 @@ class App extends Component {
                       }
                       )}
             </table>
-            <P>this is master first commit</p>
         </div>
       </div>
     );
