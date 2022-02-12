@@ -70,6 +70,7 @@ class App extends Component {
                       }
                       )}
             </table>
+             <p>this is shazad 1st update</p>
         </div>
       </div>
     );
