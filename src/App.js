@@ -69,9 +69,9 @@ class App extends Component {
                         );
                       }
                       )}
-                      <p>taking back master</p>
             </table>
               <p>this is shahzad changes</p>
+              <p>taking back master</p>
         </div>
       </div>
     );
