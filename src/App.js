@@ -70,6 +70,12 @@ class App extends Component {
                       }
                       )}
             </table>
+<<<<<<< HEAD
+=======
+             <p>this is shazad 1st update</p>
+             <p>this is shazad 2st changes</p>
+              <p>this is three 1st update</p>
+>>>>>>> 0cee4a8 (this is three first commit)
         </div>
       </div>
     );
