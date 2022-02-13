@@ -71,7 +71,7 @@ class App extends Component {
                       )}
             </table>
               <p>this is shahzad changes</p>
-              <p>taking back master</p>
+              <p>shahzad.salamat@yahoo.com</p>
         </div>
       </div>
     );
