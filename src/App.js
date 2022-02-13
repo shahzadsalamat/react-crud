@@ -71,6 +71,7 @@ class App extends Component {
                       )}
             </table>
              <p>this is shazad 1st update</p>
+             <p>this is shazad 2st changes</p>
         </div>
       </div>
     );
